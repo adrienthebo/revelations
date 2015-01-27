@@ -13,7 +13,7 @@ module Revelations
     end
 
     def render
-      template = Tilt::KramdownTemplate.new(@path.to_s, :parse_block_html => true)
+      template = Tilt::KramdownTemplate.new(@path.to_s, :parse_block_html => true, :input => 'GFM')
 
       return <<-EOD
       <!-- BEGIN #{@path.to_s} -->
