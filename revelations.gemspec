@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.files        = %x[git ls-files].split($/)
   s.require_path = 'lib'
   s.bindir       = 'bin'
-  s.executables  = 'rev-present'
+  s.executables  = ['rev-present', 'rev-text']
 end

@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'revelations'
+require 'revelations/presentation'
+require 'json'
+require 'fileutils'
+
+config = JSON.parse(File.read('slides.json'))
+presentation = Revelations::Presentation.new(config)
+
+puts presentation.slides.map(&:text).join("\n\n")
