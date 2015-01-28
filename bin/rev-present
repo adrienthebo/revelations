@@ -11,6 +11,10 @@ presentation = Revelations::Presentation.new(config)
 FileUtils.mkdir 'output' unless File.exist? 'output'
 FileUtils.cp_r File.join(Revelations::TEMPLATE_ROOT, '.'), 'output', :verbose => true
 
+if File.exist? 'images'
+  FileUtils.cp_r File.join('images'), 'output', :verbose => true
+end
+
 File.open(File.join('output', 'index.html'), 'w') do |fh|
   fh.write(presentation.render)
 end
