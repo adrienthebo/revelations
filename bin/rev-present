@@ -15,6 +15,10 @@ if File.exist? 'images'
   FileUtils.cp_r File.join('images'), 'output', :verbose => true
 end
 
+if File.exist? 'css'
+  FileUtils.cp_r File.join('css', '.'), 'output/css', :verbose => true
+end
+
 File.open(File.join('output', 'index.html'), 'w') do |fh|
   fh.write(presentation.render)
 end
