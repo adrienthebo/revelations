@@ -19,6 +19,8 @@ if File.exist? 'css'
   FileUtils.cp_r File.join('css', '.'), 'output/css', :verbose => true
 end
 
+text = presentation.render
 File.open(File.join('output', 'index.html'), 'w') do |fh|
-  fh.write(presentation.render)
+  puts "update #{File.join('output', 'index.html')}"
+  fh.write(text)
 end
