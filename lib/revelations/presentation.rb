@@ -18,13 +18,17 @@ module Revelations
     end
 
     def render
-      layout.render(slides)
+      layout.render(slides, locals)
     end
 
     def slides
       @config['order'].map do |filename|
         Slide.new(Pathname.new(File.join(@config[:slides], "#{filename}.mkd")))
       end
+    end
+
+    def locals
+      @config['locals']
     end
   end
 end

@@ -11,10 +11,10 @@ module Revelations
     end
 
     # @param fragments [#render]
-    def render(fragments = [])
+    def render(fragments = [], locals = {})
       template = Tilt::ERBTemplate.new(@path.to_s)
 
-      template.render do
+      template.render(Object.new, locals) do
         fragments.map do |fragment|
           fragment.render
         end.join("\n\n")
