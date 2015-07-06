@@ -12,6 +12,7 @@ module Revelations
 
     # @param fragments [#render]
     def render(fragments = [], locals = {})
+      puts "Rendering using layout #{@path.to_s}"
       template = Tilt::ERBTemplate.new(@path.to_s)
 
       template.render(Object.new, locals) do

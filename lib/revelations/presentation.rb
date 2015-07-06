@@ -19,6 +19,7 @@ module Revelations
     end
 
     def render
+      puts "Rendering presentation!"
       layout.render(slides, locals)
     end
 
