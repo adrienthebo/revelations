@@ -1,3 +1,4 @@
+require 'revelations'
 require 'revelations/slide'
 require 'revelations/layout'
 
@@ -5,8 +6,8 @@ module Revelations
   class Presentation
 
     DEFAULTS = {
-      :layout => 'layouts/default.erb',
-      :slides => 'slides',
+      'layout' => File.join(Revelations::ROOT, 'layouts', 'default.erb'),
+      'slides' => 'slides',
     }
 
     def initialize(config)
@@ -14,7 +15,7 @@ module Revelations
     end
 
     def layout
-      Layout.new(Pathname.new(@config[:layout]))
+      Layout.new(Pathname.new(@config['layout']))
     end
 
     def render
@@ -23,7 +24,7 @@ module Revelations
 
     def slides
       @config['order'].map do |filename|
-        Slide.new(Pathname.new(File.join(@config[:slides], "#{filename}.mkd")))
+        Slide.new(Pathname.new(File.join(@config['slides'], "#{filename}.mkd")))
       end
     end
 
